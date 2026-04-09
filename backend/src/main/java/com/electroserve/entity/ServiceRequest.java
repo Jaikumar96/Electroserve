@@ -1,6 +1,7 @@
 package com.electroserve.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.ColumnDefault;
 import java.time.LocalDateTime;
 
 @Entity
@@ -27,7 +28,8 @@ public class ServiceRequest {
     @Column(updatable = false)
     private LocalDateTime requestDate;
 
-    @Column(columnDefinition = "VARCHAR(20) DEFAULT 'Pending'")
+    @Column(length = 20)
+    @ColumnDefault("'Pending'")
     private String serviceStatus = "Pending";
 
     private String address;

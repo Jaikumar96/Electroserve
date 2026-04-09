@@ -1,6 +1,7 @@
 package com.electroserve.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 @Table(name = "electricians")
@@ -21,7 +22,8 @@ public class Electrician {
     private Integer experienceYears;
     private String location;
 
-    @Column(columnDefinition = "VARCHAR(20) DEFAULT 'Available'")
+    @Column(length = 20)
+    @ColumnDefault("'Available'")
     private String availabilityStatus = "Available";
 
     private Double rating = 0.0;
